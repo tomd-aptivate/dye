@@ -184,6 +184,9 @@ def main(argv):
         sys.exit(2)
     tasklib.env['verbose'] = verbose
     tasklib.env['quiet'] = quiet
+    tasklib.env['project_dir'] = project_dir
+
+    sys.path.append(os.path.join(project_dir, 'deploy'))
 
     sys.path.append(project_dir)
     import project_settings
