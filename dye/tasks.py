@@ -186,15 +186,16 @@ def main(argv):
     tasklib.env['quiet'] = quiet
     tasklib.env['project_dir'] = project_dir
 
-    sys.path.append(os.path.join(project_dir, 'deploy'))
-
+    deploy_dir = os.path.join(project_dir, 'deploy')
+    sys.path.append(deploy_dir)
     sys.path.append(project_dir)
+
     import project_settings
     # now see if we can find localtasks
     # We deliberately don't surround the import by try/except. If there
     # is an error in localfab, you want it to blow up immediately, rather
     # than silently fail.
-    if os.path.isfile(os.path.join(project_dir, 'localtasks.py')):
+    if os.path.isfile(os.path.join(deploy_dir, 'localtasks.py')):
         import localtasks
         if (hasattr(localtasks, '_setup_paths')):
             localtasks._setup_paths()
