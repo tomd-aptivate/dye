@@ -21,7 +21,7 @@ def _setup_paths(project_settings):
     h.set_dict_if_not_set(env, 'use_sudo',     True)
     h.set_dict_if_not_set(env, 'cvs_rsh',      'CVS_RSH="ssh"')
     h.set_dict_if_not_set(env, 'default_branch', {'production': 'master', 'staging': 'master'})
-    h.set_dict_if_not_set(env, 'project_root', os.path.join(env.server_home, env.project_dir))
+    h.set_dict_if_not_set(env, 'project_root', os.path.join(env.server_home, env.project_name))
     h.set_dict_if_not_set(env, 'vcs_root',     os.path.join(env.project_root, 'dev'))
     h.set_dict_if_not_set(env, 'prev_root',    os.path.join(env.project_root, 'previous'))
     h.set_dict_if_not_set(env, 'dump_dir',     os.path.join(env.project_root, 'dbdumps'))
